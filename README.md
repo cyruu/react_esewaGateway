@@ -1,1 +1,1 @@
-# react_esewaGateway
+# Esewa payment gateway integration for projects
