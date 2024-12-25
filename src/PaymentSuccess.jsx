@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
-
 const PaymentSuccess = () => {
   const [search] = useSearchParams();
   const dataQuery = search.get("data");
@@ -9,14 +8,17 @@ const PaymentSuccess = () => {
   useEffect(() => {
     const resData = atob(dataQuery);
     const resObject = JSON.parse(resData);
+    console.log(resObject);
+
     setData(resObject);
   }, [search]);
+
   return (
-    <>
-      <div>Payment Success</div>
-      <p>Total : {data.total_amount}</p>
-      <p>Status : {data.status}</p>
-    </>
+    <div className="payment-container">
+      <img src="src/check.png" alt="" />
+      <p className="price">Rs. {data.total_amount}</p>
+      <p className="status">Payment Successful</p>
+    </div>
   );
 };
 
